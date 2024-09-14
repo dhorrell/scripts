@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Warcraftlogs - Hide bottom sticky footer
-// @version      2.1
+// @version      2.3
 // @author       danh
 // @description  Remove the bottom banner on Warcraftlogs for a better user experience
 // @match        https://www.warcraftlogs.com/*
@@ -10,9 +10,9 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    var footer = document.getElementById("content").children[3].children;
+    var footer = document.getElementById("content-and-footer").children[4];
 	if (footer != null) {
-		footer[0].style = "display: none;";
+		footer.style = "display: none;";
 	}
 	var profileAdd = document.getElementById("gear-box-ad");
 	if (profileAdd != null) {
@@ -22,7 +22,7 @@
 	if (sideAdd != null) {
 		var si = sideAdd.parentElement.children[1].children[0];
 		if (si != null) {
-			si.style = "display: none;"
+			si.style = "display: none;";
 		}
 	}
 	var side = document.getElementById("right-vertical-banner");
@@ -34,5 +34,13 @@
 		if (rvb.children.length == 10) {
 			rvb.children[8].style = "display: none;"
 		}
+	}
+	var repFooter = document.getElementById("content-and-footer").children[1];
+	if (repFooter) {
+		repFooter.style = "display: none;";
+	}
+	var rightAddBox = document.getElementById("right-ad-box");
+	if (rightAddBox) {
+		rightAddBox.style = "display: none;";
 	}
 })();
